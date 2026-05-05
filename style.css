@@ -1,0 +1,41 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.card{
+    width: 350px;
+    display:flex;
+    flex-direction: column;
+    box-shadow: 0 0 9px 5px rgb(135, 123, 123);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.display{
+    background-color: beige;
+    height: 80px;
+    width: 100%;
+}
+
+.btn{
+    background: lightgray;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.equal{
+    background: orange;
+}
