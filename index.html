@@ -4,47 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Calculator</title>
 </head>
 <body>
-   <body>
+
   <div class="card">
-    <div class="display"></div>
+    <div class="display" id="display"></div>
 
-   <div class="container">
-  <button class="btn">AC</button>
-  <button class="btn">DE</button>
-  <button class="btn">%</button>
-  <button class="btn">/</button>
+    <div class="container">
+      <button class="btn" id="ac">AC</button>
+      <button class="btn" id="de">DE</button>
+      <button class="btn" id="percent">%</button>
+      <button class="btn" id="divide">/</button>
 
-  <button class="btn">7</button>
-  <button class="btn">8</button>
-  <button class="btn">9</button>
-  <button class="btn">*</button>
+      <button class="btn" id="seven">7</button>
+      <button class="btn" id="eight">8</button>
+      <button class="btn" id="nine">9</button>
+      <button class="btn" id="multiply">*</button>
 
-  <button class="btn">4</button>
-  <button class="btn">5</button>
-  <button class="btn">6</button>
-  <button class="btn">-</button>
+      <button class="btn" id="four">4</button>
+      <button class="btn" id="five">5</button>
+      <button class="btn" id="six">6</button>
+      <button class="btn" id="minus">-</button>
 
-  <button class="btn">1</button>
-  <button class="btn">2</button>
-  <button class="btn">3</button>
-  <button class="btn">+</button>
+      <button class="btn" id="one">1</button>
+      <button class="btn" id="two">2</button>
+      <button class="btn" id="three">3</button>
+      <button class="btn" id="plus">+</button>
 
-  <button class="btn">00</button>
-  <button class="btn">0</button>
-  <button class="btn">.</button>
-  <button class="btn equal">=</button>
-</div>
+      <button class="btn" id="doubleZero">00</button>
+      <button class="btn" id="zero">0</button>
+      <button class="btn" id="dot">.</button>
+      <button class="btn equal" id="equal">=</button>
+    </div>
   </div>
 
   <script>
-      
+    // Display
+    let display = document.getElementById("display");
 
+    // Buttons
+    let ac = document.getElementById("ac");
+    let de = document.getElementById("de");
+    let percent = document.getElementById("percent");
+    let divide = document.getElementById("divide");
 
+    let seven = document.getElementById("seven");
+    let eight = document.getElementById("eight");
+    let nine = document.getElementById("nine");
+    let multiply = document.getElementById("multiply");
 
+    let four = document.getElementById("four");
+    let five = document.getElementById("five");
+    let six = document.getElementById("six");
+    let minus = document.getElementById("minus");
+
+    let one = document.getElementById("one");
+    let two = document.getElementById("two");
+    let three = document.getElementById("three");
+    let plus = document.getElementById("plus");
+
+    let doubleZero = document.getElementById("doubleZero");
+    let zero = document.getElementById("zero");
+    let dot = document.getElementById("dot");
+    let equal = document.getElementById("equal");
 
   </script>
+
 </body>
 </html>
