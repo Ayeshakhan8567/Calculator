@@ -12,63 +12,117 @@
     <div class="display" id="display"></div>
 
     <div class="container">
-      <button class="btn" id="ac">AC</button>
-      <button class="btn" id="de">DE</button>
-      <button class="btn" id="percent">%</button>
-      <button class="btn" id="divide">/</button>
+      <button class="btn" id="ac" onclick="clearAll()">AC</button>
+      <button class="btn" id="de" onclick="deleteLast()">DE</button>
+      <button class="btn" id="percent" onclick="pressOperator('%')">%</button>
+      <button class="btn" id="divide" onclick="pressOperator('/')">/</button>
 
-      <button class="btn" id="seven">7</button>
-      <button class="btn" id="eight">8</button>
-      <button class="btn" id="nine">9</button>
-      <button class="btn" id="multiply">*</button>
+      <button class="btn" id="seven" onclick="pressButton('7')">7</button>
+      <button class="btn" id="eight" onclick="pressButton('8')">8</button>
+      <button class="btn" id="nine" onclick="pressButton('9')">9</button>
+      <button class="btn" id="multiply" onclick="pressOperator('*')">*</button>
 
-      <button class="btn" id="four">4</button>
-      <button class="btn" id="five">5</button>
-      <button class="btn" id="six">6</button>
-      <button class="btn" id="minus">-</button>
+      <button class="btn" id="four" onclick="pressButton('4')">4</button>
+      <button class="btn" id="five" onclick="pressButton('5')">5</button>
+      <button class="btn" id="six" onclick="pressButton('6')">6</button>
+      <button class="btn" id="minus" onclick="pressOperator('-')">-</button>
 
-      <button class="btn" id="one">1</button>
-      <button class="btn" id="two">2</button>
-      <button class="btn" id="three">3</button>
-      <button class="btn" id="plus">+</button>
+      <button class="btn" id="one" onclick="pressButton('1')">1</button>
+      <button class="btn" id="two" onclick="pressButton('2')">2</button>
+      <button class="btn" id="three" onclick="pressButton('3')">3</button>
+      <button class="btn" id="plus" onclick="pressOperator('+')">+</button>
 
-      <button class="btn" id="doubleZero">00</button>
-      <button class="btn" id="zero">0</button>
-      <button class="btn" id="dot">.</button>
-      <button class="btn equal" id="equal">=</button>
+      <button class="btn" id="doubleZero" onclick="pressButton('00')">00</button>
+      <button class="btn" id="zero" onclick="pressButton('0')">0</button>
+      <button class="btn" id="dot" onclick="pressButton('.')">.</button>
+      <button class="btn equal" id="equal" onclick="calculate()">=</button>
     </div>
   </div>
 
   <script>
-    // Display
     let display = document.getElementById("display");
 
-    // Buttons
-    let ac = document.getElementById("ac");
-    let de = document.getElementById("de");
-    let percent = document.getElementById("percent");
-    let divide = document.getElementById("divide");
+    let cvalue = "";
+    let pvalue = "";
+    let operator = "";
 
-    let seven = document.getElementById("seven");
-    let eight = document.getElementById("eight");
-    let nine = document.getElementById("nine");
-    let multiply = document.getElementById("multiply");
+    function pressButton(num){
+      if(num === "." && cvalue === ""){
+          cvalue = "0.";
+          display.innerText = cvalue;
+          return;
+      }
 
-    let four = document.getElementById("four");
-    let five = document.getElementById("five");
-    let six = document.getElementById("six");
-    let minus = document.getElementById("minus");
+      if(num === "." && cvalue.includes(".")){
+          return;
+      }
 
-    let one = document.getElementById("one");
-    let two = document.getElementById("two");
-    let three = document.getElementById("three");
-    let plus = document.getElementById("plus");
+      cvalue = cvalue + num;
+      display.innerText = cvalue;
+    }
 
-    let doubleZero = document.getElementById("doubleZero");
-    let zero = document.getElementById("zero");
-    let dot = document.getElementById("dot");
-    let equal = document.getElementById("equal");
+    function pressOperator(op){
+      if(cvalue === "") return;
 
+      operator = op;
+      display.innerText=cvalue + operator;
+      pvalue = cvalue;
+      cvalue = "";
+    }
+
+    function calculate(){
+      if(pvalue === "" || cvalue === "") return;
+
+      let value1 = Number(pvalue);
+      let value2 = Number(cvalue);
+      let result = 0;
+
+      if(operator === "+"){
+        result = value1 + value2;
+      }
+      else if(operator === "-"){
+        result = value1 - value2;
+      }
+      else if(operator === "*"){
+        result = value1 * value2;
+      }
+      else if(operator === "/"){
+        if(value2 === 0){
+          display.innerText = "Error";
+          cvalue = "";
+          pvalue = "";
+          operator = "";
+          return;
+        }
+        result = value1 / value2;
+      }
+      else if(operator === "%"){
+        result = value1 % value2;
+      }
+
+      result = Number(result.toFixed(10));
+
+      display.innerText = result;
+      cvalue = result.toString();
+      pvalue = "";
+      operator = "";
+    }
+
+    function clearAll() {
+      cvalue = "";
+      pvalue = "";
+      operator = "";
+      display.innerText = "";
+    }
+
+    function deleteLast() {
+      cvalue = cvalue.slice(0, -1);
+      display.innerText = cvalue;
+    }
+    
+    function reset(){
+      
+    }
   </script>
 
 </body>
