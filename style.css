@@ -9,9 +9,14 @@
     width: 350px;
     display:flex;
     flex-direction: column;
-    box-shadow: 0 0 9px 5px rgb(135, 123, 123);
+    box-shadow: 0 0 30px 12px rgb(255, 254, 254);
     border-radius: 10px;
     overflow: hidden;
+    background-image: url(downloads.jfif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
 }
 
 body{
@@ -19,16 +24,27 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-image:url(green.jfif) ;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
 }
 
 .display{
-    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(108, 133, 65);
     height: 80px;
     width: 100%;
+    font-size: 3rem;
+    color: white;
+    padding: 5px;   /* yahan 5pxpx ki jagah 5px */
 }
 
 .btn{
-    background: lightgray;
+    background: rgb(217, 246, 177);
     padding: 20px;
     text-align: center;
     font-size: 20px;
@@ -36,8 +52,67 @@ body{
     cursor: pointer;
     border: 0;
     outline: 0;
+
+    /* Transition Added */
+    transition: all 0.3s ease;
+}
+
+
+.btn:hover{
+    background: rgb(215, 254, 123);
+    transform: scale(1.05);
+}
+
+.btn:active{
+    transform: scale(0.95);
 }
 
 .equal{
-    background: orange;
+    background: rgb(85, 105, 35);
+    color: white;
+}
+
+.equal:hover{
+    background: rgb(226, 248, 171);
+}
+
+
+
+
+/* Tablets */
+@media (max-width: 768px){
+    .card{
+        width: 300px;
+    }
+
+    .btn{
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .display{
+        font-size: 2.5rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px){
+    .card{
+        width: 250px;
+    }
+
+    .btn{
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .display{
+        font-size: 2rem;
+        height: 70px;
+    }
+
+    .container{
+        gap: 10px;
+        padding: 15px;
+    }
 }
